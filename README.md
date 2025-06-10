@@ -205,7 +205,7 @@ python RLHF.py
 
 ## Report
 
-To refer to our full production plans, as well as answers to relevant question about the implementation of this chatbot, please open the plannification file referenced. [open](https://github.com/juandavidvargas19/B_chatbot/tree/Production/material/RAG_Chatbot_Report.pdf)
+To refer to our full production plans, as well as answers to relevant question about the implementation of this chatbot, please open the plannification file referenced. [open](https://github.com/juandavidvargas19/RAG_Chatbot/blob/Production/material/RAG_Chatbot_Report.pdf)
 
 
 
