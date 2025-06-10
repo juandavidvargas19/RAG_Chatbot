@@ -1,0 +1,613 @@
+[0;32m✅ Found PDF file: random_machine_learing.pdf (5.0M)[0m
+[1;33mChecking Minikube status...[0m
+[1;33mSetting Docker environment for Minikube...[0m
+[1;33mCleaning up existing resources...[0m
+deployment.apps "pdf-rag-app" deleted
+service "pdf-rag-service" deleted
+[1;33mApplying secrets...[0m
+[0;31m⚠️  Make sure you've updated secrets.yaml with your actual OpenAI API key![0m
+secret/openai-secret unchanged
+[1;33mBuilding Docker image with embedded PDF and Architecture Version 3...[0m
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.09kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.10-slim
+#2 DONE 0.9s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/11] FROM docker.io/library/python:3.10-slim@sha256:2ee0fb8794bf82af1b2db168ada5869b4c27d17720dd3b155b56c111fb4a38ae
+#4 resolve docker.io/library/python:3.10-slim@sha256:2ee0fb8794bf82af1b2db168ada5869b4c27d17720dd3b155b56c111fb4a38ae 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 79.61kB 0.0s done
+#5 DONE 0.0s
+
+#6 [ 2/11] WORKDIR /app
+#6 CACHED
+
+#7 [ 3/11] RUN apt-get update && apt-get install -y     gcc     g++     curl     && rm -rf /var/lib/apt/lists/*
+#7 CACHED
+
+#8 [ 4/11] COPY requirements.txt .
+#8 DONE 0.1s
+
+#9 [ 5/11] RUN pip install --no-cache-dir -r requirements.txt
+#9 4.094 Collecting aiohappyeyeballs==2.6.1
+#9 4.257   Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl (15 kB)
+#9 5.846 Collecting aiohttp==3.12.6
+#9 5.864   Downloading aiohttp-3.12.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.6 MB)
+#9 5.993      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 18.7 MB/s eta 0:00:00
+#9 6.033 Collecting aiosignal==1.3.2
+#9 6.053   Downloading aiosignal-1.3.2-py2.py3-none-any.whl (7.6 kB)
+#9 6.097 Collecting altair==5.5.0
+#9 6.142   Downloading altair-5.5.0-py3-none-any.whl (731 kB)
+#9 6.154      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 731.2/731.2 kB 97.1 MB/s eta 0:00:00
+#9 6.190 Collecting annotated-types==0.7.0
+#9 6.208   Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+#9 6.320 Collecting anyio==4.9.0
+#9 6.342   Downloading anyio-4.9.0-py3-none-any.whl (100 kB)
+#9 6.349      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100.9/100.9 kB 107.1 MB/s eta 0:00:00
+#9 6.413 Collecting arrow==1.3.0
+#9 6.430   Downloading arrow-1.3.0-py3-none-any.whl (66 kB)
+#9 6.434      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 66.4/66.4 kB 178.7 MB/s eta 0:00:00
+#9 6.488 Collecting asgiref==3.8.1
+#9 6.505   Downloading asgiref-3.8.1-py3-none-any.whl (23 kB)
+#9 6.560 Collecting asttokens==3.0.0
+#9 6.581   Downloading asttokens-3.0.0-py3-none-any.whl (26 kB)
+#9 6.637 Collecting async-timeout==4.0.3
+#9 6.658   Downloading async_timeout-4.0.3-py3-none-any.whl (5.7 kB)
+#9 6.731 Collecting attrs==25.3.0
+#9 6.750   Downloading attrs-25.3.0-py3-none-any.whl (63 kB)
+#9 6.757      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 63.8/63.8 kB 77.7 MB/s eta 0:00:00
+#9 6.824 Collecting backoff==2.2.1
+#9 6.841   Downloading backoff-2.2.1-py3-none-any.whl (15 kB)
+#9 6.972 Collecting bcrypt==4.3.0
+#9 6.993   Downloading bcrypt-4.3.0-cp39-abi3-manylinux_2_34_x86_64.whl (284 kB)
+#9 6.999      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 284.2/284.2 kB 180.0 MB/s eta 0:00:00
+#9 7.030 Collecting blinker==1.9.0
+#9 7.047   Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+#9 7.086 Collecting build==1.2.2.post1
+#9 7.104   Downloading build-1.2.2.post1-py3-none-any.whl (22 kB)
+#9 7.166 Collecting cachetools==5.5.2
+#9 7.185   Downloading cachetools-5.5.2-py3-none-any.whl (10 kB)
+#9 7.264 Collecting certifi==2025.4.26
+#9 7.281   Downloading certifi-2025.4.26-py3-none-any.whl (159 kB)
+#9 7.287      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 159.6/159.6 kB 164.1 MB/s eta 0:00:00
+#9 7.609 Collecting cffi==1.17.1
+#9 7.630   Downloading cffi-1.17.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (446 kB)
+#9 7.639      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 446.2/446.2 kB 121.3 MB/s eta 0:00:00
+#9 8.015 Collecting charset-normalizer==3.4.2
+#9 8.037   Downloading charset_normalizer-3.4.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (149 kB)
+#9 8.040      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 149.5/149.5 kB 293.2 MB/s eta 0:00:00
+#9 8.190 Collecting chromadb==1.0.12
+#9 8.208   Downloading chromadb-1.0.12-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (19.3 MB)
+#9 8.624      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 19.3/19.3 MB 45.8 MB/s eta 0:00:00
+#9 8.835 Collecting click==8.2.1
+#9 8.851   Downloading click-8.2.1-py3-none-any.whl (102 kB)
+#9 8.858      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 102.2/102.2 kB 145.2 MB/s eta 0:00:00
+#9 9.019 Collecting codecarbon==3.0.2
+#9 9.039   Downloading codecarbon-3.0.2-py3-none-any.whl (610 kB)
+#9 9.050      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 610.1/610.1 kB 121.1 MB/s eta 0:00:00
+#9 9.132 Collecting coloredlogs==15.0.1
+#9 9.154   Downloading coloredlogs-15.0.1-py2.py3-none-any.whl (46 kB)
+#9 9.157      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.0/46.0 kB 235.6 MB/s eta 0:00:00
+#9 9.574 Collecting cryptography==45.0.3
+#9 9.595   Downloading cryptography-45.0.3-cp37-abi3-manylinux_2_34_x86_64.whl (4.5 MB)
+#9 9.681      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 55.0 MB/s eta 0:00:00
+#9 9.792 Collecting dataclasses-json==0.6.7
+#9 9.811   Downloading dataclasses_json-0.6.7-py3-none-any.whl (28 kB)
+#9 9.863 Collecting decorator==5.2.1
+#9 9.907   Downloading decorator-5.2.1-py3-none-any.whl (9.2 kB)
+#9 9.991 Collecting Deprecated==1.2.18
+#9 10.01   Downloading Deprecated-1.2.18-py2.py3-none-any.whl (10.0 kB)
+#9 10.06 Collecting distro==1.9.0
+#9 10.08   Downloading distro-1.9.0-py3-none-any.whl (20 kB)
+#9 10.14 Collecting durationpy==0.10
+#9 10.16   Downloading durationpy-0.10-py3-none-any.whl (3.9 kB)
+#9 10.20 Collecting exceptiongroup==1.3.0
+#9 10.22   Downloading exceptiongroup-1.3.0-py3-none-any.whl (16 kB)
+#9 10.26 Collecting executing==2.2.0
+#9 10.27   Downloading executing-2.2.0-py2.py3-none-any.whl (26 kB)
+#9 10.43 Collecting faiss-cpu==1.11.0
+#9 10.45   Downloading faiss_cpu-1.11.0-cp310-cp310-manylinux_2_28_x86_64.whl (31.3 MB)
+#9 11.17      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 31.3/31.3 MB 44.9 MB/s eta 0:00:00
+#9 11.36 Collecting faiss-gpu==1.7.2
+#9 11.37   Downloading faiss_gpu-1.7.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (85.5 MB)
+#9 13.51      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 85.5/85.5 MB 48.6 MB/s eta 0:00:00
+#9 13.77 Collecting fastapi==0.115.9
+#9 13.79   Downloading fastapi-0.115.9-py3-none-any.whl (94 kB)
+#9 13.79      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 94.9/94.9 kB 243.0 MB/s eta 0:00:00
+#9 13.92 Collecting fief-client==0.20.0
+#9 13.93   Downloading fief_client-0.20.0-py3-none-any.whl (20 kB)
+#9 14.00 Collecting filelock==3.18.0
+#9 14.01   Downloading filelock-3.18.0-py3-none-any.whl (16 kB)
+#9 14.15 Collecting Flask==3.1.1
+#9 14.17   Downloading flask-3.1.1-py3-none-any.whl (103 kB)
+#9 14.17      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 103.3/103.3 kB 163.7 MB/s eta 0:00:00
+#9 14.22 Collecting flatbuffers==25.2.10
+#9 14.23   Downloading flatbuffers-25.2.10-py2.py3-none-any.whl (30 kB)
+#9 14.46 Collecting frozenlist==1.6.0
+#9 14.48   Downloading frozenlist-1.6.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (287 kB)
+#9 14.49      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 287.3/287.3 kB 142.4 MB/s eta 0:00:00
+#9 14.64 Collecting fsspec==2025.5.1
+#9 14.69   Downloading fsspec-2025.5.1-py3-none-any.whl (199 kB)
+#9 14.70      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 199.1/199.1 kB 120.3 MB/s eta 0:00:00
+#9 14.77 Collecting gitdb==4.0.12
+#9 14.79   Downloading gitdb-4.0.12-py3-none-any.whl (62 kB)
+#9 14.80      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.8/62.8 kB 60.1 MB/s eta 0:00:00
+#9 14.93 Collecting GitPython==3.1.44
+#9 14.95   Downloading GitPython-3.1.44-py3-none-any.whl (207 kB)
+#9 14.96      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 207.6/207.6 kB 230.2 MB/s eta 0:00:00
+#9 15.13 Collecting google-auth==2.40.2
+#9 15.15   Downloading google_auth-2.40.2-py2.py3-none-any.whl (216 kB)
+#9 15.15      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 216.1/216.1 kB 258.4 MB/s eta 0:00:00
+#9 15.20 Collecting googleapis-common-protos==1.70.0
+#9 15.21   Downloading googleapis_common_protos-1.70.0-py3-none-any.whl (294 kB)
+#9 15.22      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 294.5/294.5 kB 174.2 MB/s eta 0:00:00
+#9 15.54 Collecting greenlet==3.2.2
+#9 15.64   Downloading greenlet-3.2.2-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (580 kB)
+#9 15.65      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 580.6/580.6 kB 83.5 MB/s eta 0:00:00
+#9 17.29 Collecting grpcio==1.71.0
+#9 17.43   Downloading grpcio-1.71.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (5.9 MB)
+#9 18.96      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.9/5.9 MB 3.9 MB/s eta 0:00:00
+#9 19.15 Collecting h11==0.16.0
+#9 19.27   Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+#9 19.47 Collecting hf-xet==1.1.2
+#9 19.58   Downloading hf_xet-1.1.2-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (5.2 MB)
+#9 19.96      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/5.2 MB 13.8 MB/s eta 0:00:00
+#9 20.06 Collecting httpcore==1.0.9
+#9 20.08   Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+#9 20.09      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.8/78.8 kB 202.9 MB/s eta 0:00:00
+#9 20.17 Collecting httptools==0.6.4
+#9 20.19   Downloading httptools-0.6.4-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (442 kB)
+#9 20.21      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 442.1/442.1 kB 22.1 MB/s eta 0:00:00
+#9 20.27 Collecting httpx==0.27.2
+#9 20.29   Downloading httpx-0.27.2-py3-none-any.whl (76 kB)
+#9 20.29      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 76.4/76.4 kB 263.2 MB/s eta 0:00:00
+#9 20.32 Collecting httpx-sse==0.4.0
+#9 20.34   Downloading httpx_sse-0.4.0-py3-none-any.whl (7.8 kB)
+#9 20.60 Collecting huggingface-hub==0.32.3
+#9 20.62   Downloading huggingface_hub-0.32.3-py3-none-any.whl (512 kB)
+#9 20.65      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 512.1/512.1 kB 20.0 MB/s eta 0:00:00
+#9 20.72 Collecting humanfriendly==10.0
+#9 20.74   Downloading humanfriendly-10.0-py2.py3-none-any.whl (86 kB)
+#9 20.74      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 86.8/86.8 kB 183.2 MB/s eta 0:00:00
+#9 20.79 Collecting idna==3.10
+#9 20.83   Downloading idna-3.10-py3-none-any.whl (70 kB)
+#9 20.84      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 70.4/70.4 kB 86.0 MB/s eta 0:00:00
+#9 20.96 Collecting importlib_metadata==8.6.1
+#9 20.98   Downloading importlib_metadata-8.6.1-py3-none-any.whl (26 kB)
+#9 21.05 Collecting importlib_resources==6.5.2
+#9 21.07   Downloading importlib_resources-6.5.2-py3-none-any.whl (37 kB)
+#9 21.18 Collecting ipython==8.37.0
+#9 21.20   Downloading ipython-8.37.0-py3-none-any.whl (831 kB)
+#9 21.24      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 831.9/831.9 kB 20.1 MB/s eta 0:00:00
+#9 21.31 Collecting itsdangerous==2.2.0
+#9 21.32   Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+#9 21.39 Collecting jedi==0.19.2
+#9 21.41   Downloading jedi-0.19.2-py2.py3-none-any.whl (1.6 MB)
+#9 21.50      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 19.0 MB/s eta 0:00:00
+#9 21.59 Collecting Jinja2==3.1.6
+#9 21.61   Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+#9 21.61      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.9/134.9 kB 128.8 MB/s eta 0:00:00
+#9 21.87 Collecting jiter==0.10.0
+#9 21.89   Downloading jiter-0.10.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (352 kB)
+#9 21.91      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 352.5/352.5 kB 22.0 MB/s eta 0:00:00
+#9 22.03 Collecting joblib==1.5.1
+#9 22.05   Downloading joblib-1.5.1-py3-none-any.whl (307 kB)
+#9 22.07      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 307.7/307.7 kB 23.5 MB/s eta 0:00:00
+#9 22.26 Collecting jsonpatch==1.33
+#9 22.28   Downloading jsonpatch-1.33-py2.py3-none-any.whl (12 kB)
+#9 22.31 Collecting jsonpointer==3.0.0
+#9 22.33   Downloading jsonpointer-3.0.0-py2.py3-none-any.whl (7.6 kB)
+#9 22.43 Collecting jsonschema==4.24.0
+#9 22.45   Downloading jsonschema-4.24.0-py3-none-any.whl (88 kB)
+#9 22.46      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 88.7/88.7 kB 93.3 MB/s eta 0:00:00
+#9 22.53 Collecting jsonschema-specifications==2025.4.1
+#9 22.55   Downloading jsonschema_specifications-2025.4.1-py3-none-any.whl (18 kB)
+#9 22.70 Collecting jwcrypto==1.5.6
+#9 22.72   Downloading jwcrypto-1.5.6-py3-none-any.whl (92 kB)
+#9 22.73      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 92.5/92.5 kB 91.2 MB/s eta 0:00:00
+#9 22.87 Collecting kubernetes==32.0.1
+#9 22.89   Downloading kubernetes-32.0.1-py2.py3-none-any.whl (2.0 MB)
+#9 22.99      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 19.8 MB/s eta 0:00:00
+#9 23.26 Collecting langchain==0.3.25
+#9 23.28   Downloading langchain-0.3.25-py3-none-any.whl (1.0 MB)
+#9 23.33      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.0/1.0 MB 19.4 MB/s eta 0:00:00
+#9 23.68 Collecting langchain-chroma==0.2.4
+#9 23.70   Downloading langchain_chroma-0.2.4-py3-none-any.whl (11 kB)
+#9 23.91 Collecting langchain-community==0.3.24
+#9 23.93   Downloading langchain_community-0.3.24-py3-none-any.whl (2.5 MB)
+#9 24.06      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.5/2.5 MB 19.7 MB/s eta 0:00:00
+#9 24.26 Collecting langchain-core==0.3.63
+#9 24.27   Downloading langchain_core-0.3.63-py3-none-any.whl (438 kB)
+#9 24.30      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 438.5/438.5 kB 25.3 MB/s eta 0:00:00
+#9 24.38 Collecting langchain-openai==0.3.18
+#9 24.40   Downloading langchain_openai-0.3.18-py3-none-any.whl (63 kB)
+#9 24.40      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 63.4/63.4 kB 198.5 MB/s eta 0:00:00
+#9 24.45 Collecting langchain-text-splitters==0.3.8
+#9 24.47   Downloading langchain_text_splitters-0.3.8-py3-none-any.whl (32 kB)
+#9 24.66 Collecting langgraph==0.4.7
+#9 24.68   Downloading langgraph-0.4.7-py3-none-any.whl (154 kB)
+#9 24.68      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 154.9/154.9 kB 103.1 MB/s eta 0:00:00
+#9 24.81 Collecting langgraph-checkpoint==2.0.26
+#9 24.83   Downloading langgraph_checkpoint-2.0.26-py3-none-any.whl (44 kB)
+#9 24.83      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.2/44.2 kB 69.3 MB/s eta 0:00:00
+#9 24.99 Collecting langgraph-prebuilt==0.2.2
+#9 25.02   Downloading langgraph_prebuilt-0.2.2-py3-none-any.whl (23 kB)
+#9 25.19 Collecting langgraph-sdk==0.1.70
+#9 25.20   Downloading langgraph_sdk-0.1.70-py3-none-any.whl (49 kB)
+#9 25.21      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 50.0/50.0 kB 176.5 MB/s eta 0:00:00
+#9 25.47 Collecting langsmith==0.3.43
+#9 25.48   Downloading langsmith-0.3.43-py3-none-any.whl (361 kB)
+#9 25.54      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 361.1/361.1 kB 7.2 MB/s eta 0:00:00
+#9 25.62 Collecting markdown-it-py==3.0.0
+#9 25.64   Downloading markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
+#9 25.65      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 87.5/87.5 kB 109.9 MB/s eta 0:00:00
+#9 25.81 Collecting MarkupSafe==3.0.2
+#9 25.85   Downloading MarkupSafe-3.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (20 kB)
+#9 25.97 Collecting marshmallow==3.26.1
+#9 25.99   Downloading marshmallow-3.26.1-py3-none-any.whl (50 kB)
+#9 26.00      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 50.9/50.9 kB 74.6 MB/s eta 0:00:00
+#9 26.06 Collecting matplotlib-inline==0.1.7
+#9 26.08   Downloading matplotlib_inline-0.1.7-py3-none-any.whl (9.9 kB)
+#9 26.14 Collecting mdurl==0.1.2
+#9 26.16   Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+#9 26.32 Collecting mmh3==5.1.0
+#9 26.34   Downloading mmh3-5.1.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (99 kB)
+#9 26.35      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 99.2/99.2 kB 50.1 MB/s eta 0:00:00
+#9 26.39 Collecting mpmath==1.3.0
+#9 26.41   Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+#9 26.44      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 24.3 MB/s eta 0:00:00
+#9 27.22 Collecting multidict==6.4.4
+#9 27.24   Downloading multidict-6.4.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (219 kB)
+#9 27.24      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 219.1/219.1 kB 34.5 MB/s eta 0:00:00
+#9 27.28 Collecting mypy_extensions==1.1.0
+#9 27.30   Downloading mypy_extensions-1.1.0-py3-none-any.whl (5.0 kB)
+#9 27.42 Collecting narwhals==1.41.0
+#9 27.44   Downloading narwhals-1.41.0-py3-none-any.whl (357 kB)
+#9 27.46      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 358.0/358.0 kB 25.6 MB/s eta 0:00:00
+#9 28.02 Collecting numpy==2.2.6
+#9 28.04   Downloading numpy-2.2.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.8 MB)
+#9 28.88      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.8/16.8 MB 20.4 MB/s eta 0:00:00
+#9 29.07 Collecting nvidia-ml-py==12.575.51
+#9 29.09   Downloading nvidia_ml_py-12.575.51-py3-none-any.whl (47 kB)
+#9 29.10      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 47.5/47.5 kB 101.0 MB/s eta 0:00:00
+#9 29.16 Collecting oauthlib==3.2.2
+#9 29.18   Downloading oauthlib-3.2.2-py3-none-any.whl (151 kB)
+#9 29.19      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 151.7/151.7 kB 98.4 MB/s eta 0:00:00
+#9 29.34 Collecting onnxruntime==1.22.0
+#9 29.36   Downloading onnxruntime-1.22.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.4 MB)
+#9 30.16      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.4/16.4 MB 19.9 MB/s eta 0:00:00
+#9 30.44 Collecting openai==1.82.1
+#9 30.46   Downloading openai-1.82.1-py3-none-any.whl (720 kB)
+#9 30.49      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 720.5/720.5 kB 28.5 MB/s eta 0:00:00
+#9 30.61 Collecting opentelemetry-api==1.33.1
+#9 30.65   Downloading opentelemetry_api-1.33.1-py3-none-any.whl (65 kB)
+#9 30.66      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 65.8/65.8 kB 117.2 MB/s eta 0:00:00
+#9 30.79 Collecting opentelemetry-exporter-otlp-proto-common==1.33.1
+#9 30.80   Downloading opentelemetry_exporter_otlp_proto_common-1.33.1-py3-none-any.whl (18 kB)
+#9 30.91 Collecting opentelemetry-exporter-otlp-proto-grpc==1.33.1
+#9 30.93   Downloading opentelemetry_exporter_otlp_proto_grpc-1.33.1-py3-none-any.whl (18 kB)
+#9 31.05 Collecting opentelemetry-instrumentation==0.54b1
+#9 31.07   Downloading opentelemetry_instrumentation-0.54b1-py3-none-any.whl (31 kB)
+#9 31.21 Collecting opentelemetry-instrumentation-asgi==0.54b1
+#9 31.23   Downloading opentelemetry_instrumentation_asgi-0.54b1-py3-none-any.whl (16 kB)
+#9 31.40 Collecting opentelemetry-instrumentation-fastapi==0.54b1
+#9 31.42   Downloading opentelemetry_instrumentation_fastapi-0.54b1-py3-none-any.whl (12 kB)
+#9 31.58 Collecting opentelemetry-proto==1.33.1
+#9 31.59   Downloading opentelemetry_proto-1.33.1-py3-none-any.whl (55 kB)
+#9 31.60      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 55.9/55.9 kB 73.1 MB/s eta 0:00:00
+#9 31.77 Collecting opentelemetry-sdk==1.33.1
+#9 31.78   Downloading opentelemetry_sdk-1.33.1-py3-none-any.whl (118 kB)
+#9 31.79      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 119.0/119.0 kB 153.7 MB/s eta 0:00:00
+#9 31.95 Collecting opentelemetry-semantic-conventions==0.54b1
+#9 31.97   Downloading opentelemetry_semantic_conventions-0.54b1-py3-none-any.whl (194 kB)
+#9 31.98      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 194.9/194.9 kB 101.4 MB/s eta 0:00:00
+#9 32.16 Collecting opentelemetry-util-http==0.54b1
+#9 32.17   Downloading opentelemetry_util_http-0.54b1-py3-none-any.whl (7.3 kB)
+#9 33.00 Collecting orjson==3.10.18
+#9 33.02   Downloading orjson-3.10.18-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (132 kB)
+#9 33.03      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.8/132.8 kB 272.4 MB/s eta 0:00:00
+#9 33.26 Collecting ormsgpack==1.10.0
+#9 33.28   Downloading ormsgpack-1.10.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (216 kB)
+#9 33.29      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 216.5/216.5 kB 45.9 MB/s eta 0:00:00
+#9 33.36 Collecting overrides==7.7.0
+#9 33.38   Downloading overrides-7.7.0-py3-none-any.whl (17 kB)
+#9 33.46 Collecting packaging==24.2
+#9 33.48   Downloading packaging-24.2-py3-none-any.whl (65 kB)
+#9 33.49      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 65.5/65.5 kB 112.0 MB/s eta 0:00:00
+#9 33.93 Collecting pandas==2.2.3
+#9 33.95   Downloading pandas-2.2.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.1 MB)
+#9 34.49      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 24.1 MB/s eta 0:00:00
+#9 34.57 Collecting parso==0.8.4
+#9 34.58   Downloading parso-0.8.4-py2.py3-none-any.whl (103 kB)
+#9 34.59      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 103.7/103.7 kB 291.5 MB/s eta 0:00:00
+#9 34.62 Collecting pexpect==4.9.0
+#9 34.64   Downloading pexpect-4.9.0-py2.py3-none-any.whl (63 kB)
+#9 34.65      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 63.8/63.8 kB 127.2 MB/s eta 0:00:00
+#9 35.06 Collecting pillow==11.2.1
+#9 35.08   Downloading pillow-11.2.1-cp310-cp310-manylinux_2_28_x86_64.whl (4.6 MB)
+#9 35.31      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.6/4.6 MB 20.9 MB/s eta 0:00:00
+#9 35.42 Collecting posthog==4.2.0
+#9 35.45   Downloading posthog-4.2.0-py2.py3-none-any.whl (96 kB)
+#9 35.46      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 96.7/96.7 kB 106.2 MB/s eta 0:00:00
+#9 35.61 Collecting prometheus_client==0.22.0
+#9 35.62   Downloading prometheus_client-0.22.0-py3-none-any.whl (62 kB)
+#9 35.63      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.7/62.7 kB 134.5 MB/s eta 0:00:00
+#9 35.73 Collecting prompt_toolkit==3.0.51
+#9 35.75   Downloading prompt_toolkit-3.0.51-py3-none-any.whl (387 kB)
+#9 35.80      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 387.8/387.8 kB 8.4 MB/s eta 0:00:00
+#9 35.91 Collecting propcache==0.3.1
+#9 35.93   Downloading propcache-0.3.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (206 kB)
+#9 35.94      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 206.6/206.6 kB 19.0 MB/s eta 0:00:00
+#9 36.34 Collecting protobuf==5.29.5
+#9 36.36   Downloading protobuf-5.29.5-cp38-abi3-manylinux2014_x86_64.whl (319 kB)
+#9 36.37      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 319.9/319.9 kB 39.2 MB/s eta 0:00:00
+#9 36.57 Collecting psutil==7.0.0
+#9 36.59   Downloading psutil-7.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (277 kB)
+#9 36.60      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 278.0/278.0 kB 69.7 MB/s eta 0:00:00
+#9 36.63 Collecting ptyprocess==0.7.0
+#9 36.65   Downloading ptyprocess-0.7.0-py2.py3-none-any.whl (13 kB)
+#9 36.68 Collecting pure_eval==0.2.3
+#9 36.70   Downloading pure_eval-0.2.3-py3-none-any.whl (11 kB)
+#9 36.73 Collecting py-cpuinfo==9.0.0
+#9 36.75   Downloading py_cpuinfo-9.0.0-py3-none-any.whl (22 kB)
+#9 37.00 Collecting pyarrow==20.0.0
+#9 37.01   Downloading pyarrow-20.0.0-cp310-cp310-manylinux_2_28_x86_64.whl (42.3 MB)
+#9 39.15      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.3/42.3 MB 48.2 MB/s eta 0:00:00
+#9 39.33 Collecting pyasn1==0.6.1
+#9 39.35   Downloading pyasn1-0.6.1-py3-none-any.whl (83 kB)
+#9 39.36      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 83.1/83.1 kB 105.2 MB/s eta 0:00:00
+#9 39.42 Collecting pyasn1_modules==0.4.2
+#9 39.44   Downloading pyasn1_modules-0.4.2-py3-none-any.whl (181 kB)
+#9 39.44      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 181.3/181.3 kB 125.3 MB/s eta 0:00:00
+#9 39.49 Collecting pycparser==2.22
+#9 39.51   Downloading pycparser-2.22-py3-none-any.whl (117 kB)
+#9 39.52      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 117.6/117.6 kB 101.3 MB/s eta 0:00:00
+#9 39.83 Collecting pydantic==2.11.5
+#9 39.85   Downloading pydantic-2.11.5-py3-none-any.whl (444 kB)
+#9 39.85      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 444.2/444.2 kB 112.7 MB/s eta 0:00:00
+#9 39.90 Collecting pydantic-settings==2.9.1
+#9 39.92   Downloading pydantic_settings-2.9.1-py3-none-any.whl (44 kB)
+#9 39.92      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.4/44.4 kB 114.4 MB/s eta 0:00:00
+#9 42.56 Collecting pydantic_core==2.33.2
+#9 42.58   Downloading pydantic_core-2.33.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+#9 42.63      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 50.0 MB/s eta 0:00:00
+#9 42.67 Collecting pydeck==0.9.1
+#9 42.69   Downloading pydeck-0.9.1-py2.py3-none-any.whl (6.9 MB)
+#9 42.82      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 52.3 MB/s eta 0:00:00
+#9 42.90 Collecting Pygments==2.19.1
+#9 42.91   Downloading pygments-2.19.1-py3-none-any.whl (1.2 MB)
+#9 42.93      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 91.7 MB/s eta 0:00:00
+#9 43.04 Collecting pynvml==12.0.0
+#9 43.05   Downloading pynvml-12.0.0-py3-none-any.whl (26 kB)
+#9 43.12 Collecting pypdf==5.6.0
+#9 43.33   Downloading pypdf-5.6.0-py3-none-any.whl (304 kB)
+#9 43.33      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 304.2/304.2 kB 178.9 MB/s eta 0:00:00
+#9 43.39 Collecting PyPika==0.48.9
+#9 43.41   Downloading PyPika-0.48.9.tar.gz (67 kB)
+#9 43.41      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.3/67.3 kB 162.2 MB/s eta 0:00:00
+#9 43.43   Installing build dependencies: started
+#9 46.78   Installing build dependencies: finished with status 'done'
+#9 46.78   Getting requirements to build wheel: started
+#9 47.16   Getting requirements to build wheel: finished with status 'done'
+#9 47.16   Preparing metadata (pyproject.toml): started
+#9 47.48   Preparing metadata (pyproject.toml): finished with status 'done'
+#9 47.51 Collecting pyproject_hooks==1.2.0
+#9 47.53   Downloading pyproject_hooks-1.2.0-py3-none-any.whl (10 kB)
+#9 47.60 Collecting python-dateutil==2.9.0.post0
+#9 47.62   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+#9 47.63      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 229.9/229.9 kB 121.8 MB/s eta 0:00:00
+#9 47.67 Collecting python-dotenv==1.1.0
+#9 47.69   Downloading python_dotenv-1.1.0-py3-none-any.whl (20 kB)
+#9 47.85 Collecting pytz==2025.2
+#9 47.87   Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)
+#9 47.88      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 509.2/509.2 kB 118.5 MB/s eta 0:00:00
+#9 48.06 Collecting PyYAML==6.0.2
+#9 48.08   Downloading PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (751 kB)
+#9 48.09      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 751.2/751.2 kB 107.8 MB/s eta 0:00:00
+#9 48.23 Collecting questionary==2.1.0
+#9 48.27   Downloading questionary-2.1.0-py3-none-any.whl (36 kB)
+#9 48.39 Collecting rank-bm25==0.2.2
+#9 48.41   Downloading rank_bm25-0.2.2-py3-none-any.whl (8.6 kB)
+#9 50.31 Collecting RapidFuzz==3.13.0
+#9 50.33   Downloading rapidfuzz-3.13.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)
+#9 50.74      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.1/3.1 MB 7.5 MB/s eta 0:00:00
+#9 50.82 Collecting referencing==0.36.2
+#9 50.87   Downloading referencing-0.36.2-py3-none-any.whl (26 kB)
+#9 51.98 Collecting regex==2024.11.6
+#9 52.00   Downloading regex-2024.11.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (781 kB)
+#9 52.01      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 781.7/781.7 kB 63.6 MB/s eta 0:00:00
+#9 52.09 Collecting requests==2.32.3
+#9 52.11   Downloading requests-2.32.3-py3-none-any.whl (64 kB)
+#9 52.12      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 64.9/64.9 kB 124.5 MB/s eta 0:00:00
+#9 52.17 Collecting requests-oauthlib==2.0.0
+#9 52.18   Downloading requests_oauthlib-2.0.0-py2.py3-none-any.whl (24 kB)
+#9 52.24 Collecting requests-toolbelt==1.0.0
+#9 52.26   Downloading requests_toolbelt-1.0.0-py2.py3-none-any.whl (54 kB)
+#9 52.27      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 54.5/54.5 kB 47.6 MB/s eta 0:00:00
+#9 52.45 Collecting rich==14.0.0
+#9 52.47   Downloading rich-14.0.0-py3-none-any.whl (243 kB)
+#9 52.47      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 243.2/243.2 kB 319.4 MB/s eta 0:00:00
+#9 53.35 Collecting rpds-py==0.25.1
+#9 53.37   Downloading rpds_py-0.25.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (386 kB)
+#9 53.37      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 387.0/387.0 kB 100.7 MB/s eta 0:00:00
+#9 53.41 Collecting rsa==4.9.1
+#9 53.42   Downloading rsa-4.9.1-py3-none-any.whl (34 kB)
+#9 53.66 Collecting scikit-learn==1.6.1
+#9 53.68   Downloading scikit_learn-1.6.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.5 MB)
+#9 53.95      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.5/13.5 MB 48.6 MB/s eta 0:00:00
+#9 54.32 Collecting scipy==1.15.3
+#9 54.34   Downloading scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.7 MB)
+#9 55.05      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.7/37.7 MB 51.6 MB/s eta 0:00:00
+#9 55.16 Collecting shellingham==1.5.4
+#9 55.18   Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+#9 55.22 Collecting six==1.17.0
+#9 55.24   Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+#9 55.28 Collecting smmap==5.0.2
+#9 55.31   Downloading smmap-5.0.2-py3-none-any.whl (24 kB)
+#9 55.34 Collecting sniffio==1.3.1
+#9 55.35   Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
+#9 56.23 Collecting SQLAlchemy==2.0.41
+#9 56.26   Downloading sqlalchemy-2.0.41-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.2 MB)
+#9 56.32      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 52.2 MB/s eta 0:00:00
+#9 56.36 Collecting stack-data==0.6.3
+#9 56.38   Downloading stack_data-0.6.3-py3-none-any.whl (24 kB)
+#9 56.46 Collecting starlette==0.45.3
+#9 56.48   Downloading starlette-0.45.3-py3-none-any.whl (71 kB)
+#9 56.49      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 71.5/71.5 kB 97.6 MB/s eta 0:00:00
+#9 56.60 Collecting streamlit==1.45.1
+#9 56.61   Downloading streamlit-1.45.1-py3-none-any.whl (9.9 MB)
+#9 56.78      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.9/9.9 MB 60.4 MB/s eta 0:00:00
+#9 56.87 Collecting sympy==1.14.0
+#9 56.89   Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+#9 57.01      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 55.8 MB/s eta 0:00:00
+#9 57.10 Collecting tenacity==9.1.2
+#9 57.12   Downloading tenacity-9.1.2-py3-none-any.whl (28 kB)
+#9 57.16 Collecting termcolor==2.3.0
+#9 57.18   Downloading termcolor-2.3.0-py3-none-any.whl (6.9 kB)
+#9 57.22 Collecting threadpoolctl==3.6.0
+#9 57.24   Downloading threadpoolctl-3.6.0-py3-none-any.whl (18 kB)
+#9 57.41 Collecting tiktoken==0.9.0
+#9 57.43   Downloading tiktoken-0.9.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.2 MB)
+#9 57.46      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 45.0 MB/s eta 0:00:00
+#9 58.16 Collecting tokenizers==0.21.1
+#9 58.18   Downloading tokenizers-0.21.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
+#9 58.24      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.0/3.0 MB 53.6 MB/s eta 0:00:00
+#9 58.27 Collecting toml==0.10.2
+#9 58.29   Downloading toml-0.10.2-py2.py3-none-any.whl (16 kB)
+#9 58.34 Collecting tomli==2.2.1
+#9 58.36   Downloading tomli-2.2.1-py3-none-any.whl (14 kB)
+#9 58.45 Collecting tornado==6.5.1
+#9 58.47   Downloading tornado-6.5.1-cp39-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (443 kB)
+#9 58.48      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 443.3/443.3 kB 147.5 MB/s eta 0:00:00
+#9 58.57 Collecting tqdm==4.67.1
+#9 58.59   Downloading tqdm-4.67.1-py3-none-any.whl (78 kB)
+#9 58.59      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.5/78.5 kB 210.3 MB/s eta 0:00:00
+#9 58.65 Collecting traitlets==5.14.3
+#9 58.67   Downloading traitlets-5.14.3-py3-none-any.whl (85 kB)
+#9 58.67      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 85.4/85.4 kB 163.9 MB/s eta 0:00:00
+#9 58.79 Collecting typer==0.16.0
+#9 58.81   Downloading typer-0.16.0-py3-none-any.whl (46 kB)
+#9 58.81      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.3/46.3 kB 150.4 MB/s eta 0:00:00
+#9 58.93 Collecting types-python-dateutil==2.9.0.20250516
+#9 58.95   Downloading types_python_dateutil-2.9.0.20250516-py3-none-any.whl (14 kB)
+#9 58.99 Collecting typing-inspect==0.9.0
+#9 59.01   Downloading typing_inspect-0.9.0-py3-none-any.whl (8.8 kB)
+#9 59.04 Collecting typing-inspection==0.4.1
+#9 59.06   Downloading typing_inspection-0.4.1-py3-none-any.whl (14 kB)
+#9 59.11 Collecting typing_extensions==4.13.2
+#9 59.13   Downloading typing_extensions-4.13.2-py3-none-any.whl (45 kB)
+#9 59.14      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.8/45.8 kB 117.9 MB/s eta 0:00:00
+#9 59.18 Collecting tzdata==2025.2
+#9 59.20   Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+#9 59.21      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 347.8/347.8 kB 109.2 MB/s eta 0:00:00
+#9 59.30 Collecting urllib3==2.4.0
+#9 59.31   Downloading urllib3-2.4.0-py3-none-any.whl (128 kB)
+#9 59.31      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 128.7/128.7 kB 271.0 MB/s eta 0:00:00
+#9 59.38 Collecting uvicorn==0.34.3
+#9 59.39   Downloading uvicorn-0.34.3-py3-none-any.whl (62 kB)
+#9 59.40      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.4/62.4 kB 218.5 MB/s eta 0:00:00
+#9 59.52 Collecting uvloop==0.21.0
+#9 59.53   Downloading uvloop-0.21.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.8 MB)
+#9 59.59      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.8/3.8 MB 71.6 MB/s eta 0:00:00
+#9 59.73 Collecting watchdog==6.0.0
+#9 59.75   Downloading watchdog-6.0.0-py3-none-manylinux2014_x86_64.whl (79 kB)
+#9 59.76      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 79.1/79.1 kB 282.4 MB/s eta 0:00:00
+#9 59.94 Collecting watchfiles==1.0.5
+#9 59.96   Downloading watchfiles-1.0.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (454 kB)
+#9 59.97      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 454.9/454.9 kB 85.6 MB/s eta 0:00:00
+#9 60.00 Collecting wcwidth==0.2.13
+#9 60.02   Downloading wcwidth-0.2.13-py2.py3-none-any.whl (34 kB)
+#9 60.09 Collecting websocket-client==1.8.0
+#9 60.11   Downloading websocket_client-1.8.0-py3-none-any.whl (58 kB)
+#9 60.11      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.8/58.8 kB 134.4 MB/s eta 0:00:00
+#9 60.36 Collecting websockets==15.0.1
+#9 60.38   Downloading websockets-15.0.1-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (181 kB)
+#9 60.39      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 181.6/181.6 kB 202.1 MB/s eta 0:00:00
+#9 60.46 Collecting Werkzeug==3.1.3
+#9 60.48   Downloading werkzeug-3.1.3-py3-none-any.whl (224 kB)
+#9 60.48      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 224.5/224.5 kB 198.3 MB/s eta 0:00:00
+#9 60.71 Collecting wrapt==1.17.2
+#9 60.76   Downloading wrapt-1.17.2-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (82 kB)
+#9 60.76      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 82.8/82.8 kB 172.2 MB/s eta 0:00:00
+#9 60.96 Collecting xxhash==3.5.0
+#9 60.99   Downloading xxhash-3.5.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (194 kB)
+#9 61.00      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 194.1/194.1 kB 155.7 MB/s eta 0:00:00
+#9 61.77 Collecting yarl==1.20.0
+#9 61.79   Downloading yarl-1.20.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (333 kB)
+#9 61.80      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 333.9/333.9 kB 95.2 MB/s eta 0:00:00
+#9 61.91 Collecting yaspin==3.1.0
+#9 61.94   Downloading yaspin-3.1.0-py3-none-any.whl (18 kB)
+#9 62.00 Collecting zipp==3.22.0
+#9 62.01   Downloading zipp-3.22.0-py3-none-any.whl (9.8 kB)
+#9 62.18 Collecting zstandard==0.23.0
+#9 62.20   Downloading zstandard-0.23.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (5.4 MB)
+#9 62.29      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 56.6 MB/s eta 0:00:00
+#9 71.73 Building wheels for collected packages: PyPika
+#9 71.73   Building wheel for PyPika (pyproject.toml): started
+#9 72.12   Building wheel for PyPika (pyproject.toml): finished with status 'done'
+#9 72.12   Created wheel for PyPika: filename=pypika-0.48.9-py2.py3-none-any.whl size=53803 sha256=a3564604c2a8c6d34ba72e75299401f0d7102e0754f009822fc716adf6779453
+#9 72.12   Stored in directory: /tmp/pip-ephem-wheel-cache-yfqo1u00/wheels/e1/26/51/d0bffb3d2fd82256676d7ad3003faea3bd6dddc9577af665f4
+#9 72.12 Successfully built PyPika
+#9 74.93 Installing collected packages: wcwidth, pytz, PyPika, py-cpuinfo, pure_eval, ptyprocess, nvidia-ml-py, mpmath, flatbuffers, faiss-gpu, durationpy, zstandard, zipp, xxhash, wrapt, websockets, websocket-client, watchdog, uvloop, urllib3, tzdata, typing_extensions, types-python-dateutil, traitlets, tqdm, tornado, tomli, toml, threadpoolctl, termcolor, tenacity, sympy, sniffio, smmap, six, shellingham, rpds-py, regex, RapidFuzz, PyYAML, python-dotenv, pyproject_hooks, pynvml, Pygments, pycparser, pyasn1, pyarrow, psutil, protobuf, propcache, prompt_toolkit, prometheus_client, pillow, pexpect, parso, packaging, overrides, ormsgpack, orjson, opentelemetry-util-http, oauthlib, numpy, narwhals, mypy_extensions, mmh3, mdurl, MarkupSafe, jsonpointer, joblib, jiter, itsdangerous, importlib_resources, idna, humanfriendly, httpx-sse, httptools, hf-xet, h11, grpcio, greenlet, fsspec, frozenlist, filelock, executing, distro, decorator, click, charset-normalizer, certifi, cachetools, blinker, bcrypt, backoff, attrs, async-timeout, asttokens, annotated-types, aiohappyeyeballs, yaspin, Werkzeug, uvicorn, typing-inspection, typing-inspect, stack-data, SQLAlchemy, scipy, rsa, requests, referencing, rank-bm25, questionary, python-dateutil, pypdf, pydantic_core, pyasn1_modules, opentelemetry-proto, multidict, matplotlib-inline, marshmallow, markdown-it-py, jsonpatch, Jinja2, jedi, importlib_metadata, httpcore, googleapis-common-protos, gitdb, faiss-cpu, exceptiongroup, Deprecated, coloredlogs, cffi, build, asgiref, aiosignal, yarl, tiktoken, scikit-learn, rich, requests-toolbelt, requests-oauthlib, pydeck, pydantic, posthog, pandas, opentelemetry-exporter-otlp-proto-common, opentelemetry-api, onnxruntime, jsonschema-specifications, ipython, huggingface-hub, google-auth, GitPython, Flask, dataclasses-json, cryptography, arrow, anyio, watchfiles, typer, tokenizers, starlette, pydantic-settings, opentelemetry-semantic-conventions, kubernetes, jwcrypto, jsonschema, httpx, aiohttp, opentelemetry-sdk, opentelemetry-instrumentation, openai, langsmith, langgraph-sdk, fief-client, fastapi, altair, streamlit, opentelemetry-instrumentation-asgi, opentelemetry-exporter-otlp-proto-grpc, langchain-core, opentelemetry-instrumentation-fastapi, langgraph-checkpoint, langchain-text-splitters, langchain-openai, codecarbon, langgraph-prebuilt, langchain, chromadb, langgraph, langchain-community, langchain-chroma
+#9 132.3 Successfully installed Deprecated-1.2.18 Flask-3.1.1 GitPython-3.1.44 Jinja2-3.1.6 MarkupSafe-3.0.2 PyPika-0.48.9 PyYAML-6.0.2 Pygments-2.19.1 RapidFuzz-3.13.0 SQLAlchemy-2.0.41 Werkzeug-3.1.3 aiohappyeyeballs-2.6.1 aiohttp-3.12.6 aiosignal-1.3.2 altair-5.5.0 annotated-types-0.7.0 anyio-4.9.0 arrow-1.3.0 asgiref-3.8.1 asttokens-3.0.0 async-timeout-4.0.3 attrs-25.3.0 backoff-2.2.1 bcrypt-4.3.0 blinker-1.9.0 build-1.2.2.post1 cachetools-5.5.2 certifi-2025.4.26 cffi-1.17.1 charset-normalizer-3.4.2 chromadb-1.0.12 click-8.2.1 codecarbon-3.0.2 coloredlogs-15.0.1 cryptography-45.0.3 dataclasses-json-0.6.7 decorator-5.2.1 distro-1.9.0 durationpy-0.10 exceptiongroup-1.3.0 executing-2.2.0 faiss-cpu-1.11.0 faiss-gpu-1.7.2 fastapi-0.115.9 fief-client-0.20.0 filelock-3.18.0 flatbuffers-25.2.10 frozenlist-1.6.0 fsspec-2025.5.1 gitdb-4.0.12 google-auth-2.40.2 googleapis-common-protos-1.70.0 greenlet-3.2.2 grpcio-1.71.0 h11-0.16.0 hf-xet-1.1.2 httpcore-1.0.9 httptools-0.6.4 httpx-0.27.2 httpx-sse-0.4.0 huggingface-hub-0.32.3 humanfriendly-10.0 idna-3.10 importlib_metadata-8.6.1 importlib_resources-6.5.2 ipython-8.37.0 itsdangerous-2.2.0 jedi-0.19.2 jiter-0.10.0 joblib-1.5.1 jsonpatch-1.33 jsonpointer-3.0.0 jsonschema-4.24.0 jsonschema-specifications-2025.4.1 jwcrypto-1.5.6 kubernetes-32.0.1 langchain-0.3.25 langchain-chroma-0.2.4 langchain-community-0.3.24 langchain-core-0.3.63 langchain-openai-0.3.18 langchain-text-splitters-0.3.8 langgraph-0.4.7 langgraph-checkpoint-2.0.26 langgraph-prebuilt-0.2.2 langgraph-sdk-0.1.70 langsmith-0.3.43 markdown-it-py-3.0.0 marshmallow-3.26.1 matplotlib-inline-0.1.7 mdurl-0.1.2 mmh3-5.1.0 mpmath-1.3.0 multidict-6.4.4 mypy_extensions-1.1.0 narwhals-1.41.0 numpy-2.2.6 nvidia-ml-py-12.575.51 oauthlib-3.2.2 onnxruntime-1.22.0 openai-1.82.1 opentelemetry-api-1.33.1 opentelemetry-exporter-otlp-proto-common-1.33.1 opentelemetry-exporter-otlp-proto-grpc-1.33.1 opentelemetry-instrumentation-0.54b1 opentelemetry-instrumentation-asgi-0.54b1 opentelemetry-instrumentation-fastapi-0.54b1 opentelemetry-proto-1.33.1 opentelemetry-sdk-1.33.1 opentelemetry-semantic-conventions-0.54b1 opentelemetry-util-http-0.54b1 orjson-3.10.18 ormsgpack-1.10.0 overrides-7.7.0 packaging-24.2 pandas-2.2.3 parso-0.8.4 pexpect-4.9.0 pillow-11.2.1 posthog-4.2.0 prometheus_client-0.22.0 prompt_toolkit-3.0.51 propcache-0.3.1 protobuf-5.29.5 psutil-7.0.0 ptyprocess-0.7.0 pure_eval-0.2.3 py-cpuinfo-9.0.0 pyarrow-20.0.0 pyasn1-0.6.1 pyasn1_modules-0.4.2 pycparser-2.22 pydantic-2.11.5 pydantic-settings-2.9.1 pydantic_core-2.33.2 pydeck-0.9.1 pynvml-12.0.0 pypdf-5.6.0 pyproject_hooks-1.2.0 python-dateutil-2.9.0.post0 python-dotenv-1.1.0 pytz-2025.2 questionary-2.1.0 rank-bm25-0.2.2 referencing-0.36.2 regex-2024.11.6 requests-2.32.3 requests-oauthlib-2.0.0 requests-toolbelt-1.0.0 rich-14.0.0 rpds-py-0.25.1 rsa-4.9.1 scikit-learn-1.6.1 scipy-1.15.3 shellingham-1.5.4 six-1.17.0 smmap-5.0.2 sniffio-1.3.1 stack-data-0.6.3 starlette-0.45.3 streamlit-1.45.1 sympy-1.14.0 tenacity-9.1.2 termcolor-2.3.0 threadpoolctl-3.6.0 tiktoken-0.9.0 tokenizers-0.21.1 toml-0.10.2 tomli-2.2.1 tornado-6.5.1 tqdm-4.67.1 traitlets-5.14.3 typer-0.16.0 types-python-dateutil-2.9.0.20250516 typing-inspect-0.9.0 typing-inspection-0.4.1 typing_extensions-4.13.2 tzdata-2025.2 urllib3-2.4.0 uvicorn-0.34.3 uvloop-0.21.0 watchdog-6.0.0 watchfiles-1.0.5 wcwidth-0.2.13 websocket-client-1.8.0 websockets-15.0.1 wrapt-1.17.2 xxhash-3.5.0 yarl-1.20.0 yaspin-3.1.0 zipp-3.22.0 zstandard-0.23.0
+#9 132.3 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#9 132.4 
+#9 132.4 [notice] A new release of pip is available: 23.0.1 -> 25.1.1
+#9 132.4 [notice] To update, run: pip install --upgrade pip
+#9 DONE 134.9s
+
+#10 [ 6/11] COPY random_machine_learing.pdf /app/random_machine_learing.pdf
+#10 DONE 0.1s
+
+#11 [ 7/11] COPY Chatbot.py .
+#11 DONE 0.1s
+
+#12 [ 8/11] COPY Langgraph_Agent.py .
+#12 DONE 0.1s
+
+#13 [ 9/11] COPY helper_functions.py .
+#13 DONE 0.1s
+
+#14 [10/11] COPY .env* ./
+#14 DONE 0.1s
+
+#15 [11/11] RUN mkdir -p /app/emissions_data
+#15 DONE 0.4s
+
+#16 exporting to image
+#16 exporting layers
+#16 exporting layers 9.9s done
+#16 writing image sha256:52060f3c5bd49ed3dea91dcaa9b5c40942a6d74bf361d0c643e66bdd468bb711 done
+#16 naming to docker.io/library/pdf-rag-app:latest 0.0s done
+#16 DONE 10.0s
+[0;32m✅ Docker image built successfully with Architecture Version 3[0m
+[1;33mApplying deployment...[0m
+deployment.apps/pdf-rag-app created
+service/pdf-rag-service created
+[1;33mWaiting for deployment to be ready...[0m
+deployment.apps/pdf-rag-app condition met
+[1;33mChecking pod status:[0m
+NAME                           READY   STATUS    RESTARTS   AGE
+pdf-rag-app-78f9f46cf5-rdxzh   1/1     Running   0          8s
+[0;32m✅ Deployment complete![0m
+[1;33mChecking service status:[0m
+[0;32mSERVICE                    READY   STATUS      AGE     ACCESS URL[0m
+[0;32m========================================================================[0m
+pdf-rag-app          1/1     Running    18s     http://192.168.49.2:32385
+http://192.168.49.2:32659
+prometheus           1/1     Running    218980s http://192.168.49.2:31017
+grafana              1/1     Running    218751s http://192.168.49.2:30447
+[0;32m========================================================================[0m
+[0;32m🎉 Your services are running with Architecture Version 3![0m
+[1;33mArchitecture Version: 3[0m
+Log file saved to: logs/deploy_20250607_015926.log

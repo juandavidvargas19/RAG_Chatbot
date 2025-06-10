@@ -1,0 +1,87 @@
+[0;32m🚀 Deploying PDF RAG App (Simple - No ConfigMap)[0m
+[0;32m✅ Found PDF file: random_machine_learing.pdf (5.0M)[0m
+[1;33mChecking Minikube status...[0m
+[1;33mSetting Docker environment for Minikube...[0m
+[1;33mCleaning up existing resources...[0m
+deployment.apps "pdf-rag-app" deleted
+service "pdf-rag-service" deleted
+[1;33mApplying secrets...[0m
+[0;31m⚠️  Make sure you've updated secrets.yaml with your actual OpenAI API key![0m
+secret/openai-secret unchanged
+[1;33mBuilding Docker image with embedded PDF...[0m
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 984B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.10-slim
+#2 DONE 0.8s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/11] FROM docker.io/library/python:3.10-slim@sha256:2ee0fb8794bf82af1b2db168ada5869b4c27d17720dd3b155b56c111fb4a38ae
+#4 resolve docker.io/library/python:3.10-slim@sha256:2ee0fb8794bf82af1b2db168ada5869b4c27d17720dd3b155b56c111fb4a38ae 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 219B done
+#5 DONE 0.0s
+
+#6 [ 2/11] WORKDIR /app
+#6 CACHED
+
+#7 [ 9/11] COPY helper_functions.py .
+#7 CACHED
+
+#8 [ 4/11] COPY requirements.txt .
+#8 CACHED
+
+#9 [ 8/11] COPY Langgraph_Agent.py .
+#9 CACHED
+
+#10 [10/11] COPY .env* ./
+#10 CACHED
+
+#11 [ 5/11] RUN pip install --no-cache-dir -r requirements.txt
+#11 CACHED
+
+#12 [ 6/11] COPY random_machine_learing.pdf /app/random_machine_learing.pdf
+#12 CACHED
+
+#13 [ 7/11] COPY Chatbot.py .
+#13 CACHED
+
+#14 [ 3/11] RUN apt-get update && apt-get install -y     gcc     g++     curl     && rm -rf /var/lib/apt/lists/*
+#14 CACHED
+
+#15 [11/11] RUN mkdir -p /app/emissions_data
+#15 CACHED
+
+#16 exporting to image
+#16 exporting layers done
+#16 writing image sha256:fc5c3571a2effb41ab9679589d331e28358f3d258a3ba456218f0a898b53eae2 done
+#16 naming to docker.io/library/pdf-rag-app:latest done
+#16 DONE 0.0s
+[0;32m✅ Docker image built successfully[0m
+[1;33mApplying deployment...[0m
+deployment.apps/pdf-rag-app created
+service/pdf-rag-service created
+[1;33mWaiting for deployment to be ready...[0m
+deployment.apps/pdf-rag-app condition met
+[1;33mChecking pod status:[0m
+NAME                           READY   STATUS    RESTARTS   AGE
+pdf-rag-app-78f9f46cf5-7fkzr   1/1     Running   0          7s
+[0;32m✅ Deployment complete![0m
+[1;33mChecking service status:[0m
+[0;32mSERVICE                    READY   STATUS      AGE     ACCESS URL[0m
+[0;32m========================================================================[0m
+pdf-rag-app          1/1     Running    18s     http://192.168.49.2:32644
+http://192.168.49.2:30559
+prometheus           1/1     Running    37303s  http://192.168.49.2:31017
+grafana              1/1     Running    37074s  http://192.168.49.2:30447
+[0;32m========================================================================[0m
+[0;32m🎉 Your services are running![0m
+Log file saved to: logs/deploy_20250604_233354.log

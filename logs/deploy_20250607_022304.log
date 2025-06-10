@@ -1,0 +1,72 @@
+[0;32m✅ Found PDF file: random_machine_learing.pdf (5.0M)[0m
+[1;33mChecking Minikube status...[0m
+[1;33mSetting Docker environment for Minikube...[0m
+[1;33mCleaning up existing resources...[0m
+deployment.apps "pdf-rag-app" deleted
+service "pdf-rag-service" deleted
+[1;33mApplying secrets...[0m
+[0;31m⚠️  Make sure you've updated secrets.yaml with your actual OpenAI API key![0m
+secret/openai-secret unchanged
+[1;33mBuilding Docker image with embedded PDF and Architecture Version 3...[0m
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.16kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.10-slim
+#2 DONE 0.8s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/11] FROM docker.io/library/python:3.10-slim@sha256:2ee0fb8794bf82af1b2db168ada5869b4c27d17720dd3b155b56c111fb4a38ae
+#4 resolve docker.io/library/python:3.10-slim@sha256:2ee0fb8794bf82af1b2db168ada5869b4c27d17720dd3b155b56c111fb4a38ae 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 27.52kB 0.0s done
+#5 DONE 0.0s
+
+#6 [ 2/11] WORKDIR /app
+#6 CACHED
+
+#7 [ 3/11] RUN apt-get update && apt-get install -y     gcc     g++     curl     && rm -rf /var/lib/apt/lists/*
+#7 CACHED
+
+#8 [ 4/11] COPY requirements.txt .
+#8 CACHED
+
+#9 [ 6/11] COPY random_machine_learing.pdf /app/random_machine_learing.pdf
+#9 CACHED
+
+#10 [ 5/11] RUN pip install --no-cache-dir -r requirements.txt
+#10 CACHED
+
+#11 [ 7/11] COPY Chatbot.py .
+#11 CACHED
+
+#12 [ 8/11] COPY Langgraph_Agent.py .
+#12 DONE 0.1s
+
+#13 [ 9/11] COPY helper_functions.py .
+#13 DONE 0.1s
+
+#14 [10/11] COPY .env* ./
+#14 DONE 0.1s
+
+#15 [11/11] RUN mkdir -p /app/emissions_data
+#15 DONE 0.4s
+
+#16 exporting to image
+#16 exporting layers
+#16 exporting layers 0.2s done
+#16 writing image sha256:40caa6ee9d07e995dd282a17d7055c73c87d93a4d9a1d804b452a8ff98908792 done
+#16 naming to docker.io/library/pdf-rag-app:latest 0.0s done
+#16 DONE 0.2s
+[0;32m✅ Docker image built successfully with Architecture Version 3[0m
+[1;33mApplying deployment...[0m
+deployment.apps/pdf-rag-app created
+service/pdf-rag-service created
+[1;33mWaiting for deployment to be ready...[0m

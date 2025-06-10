@@ -1,0 +1,88 @@
+[0;32m✅ Found PDF file: random_machine_learing.pdf (5.0M)[0m
+[1;33mChecking Minikube status...[0m
+[1;33mSetting Docker environment for Minikube...[0m
+[1;33mCleaning up existing resources...[0m
+deployment.apps "pdf-rag-app" deleted
+service "pdf-rag-service" deleted
+[1;33mApplying secrets...[0m
+[0;31m⚠️  Make sure you've updated secrets.yaml with your actual OpenAI API key![0m
+secret/openai-secret unchanged
+[1;33mBuilding Docker image with embedded PDF and Architecture Version 3...[0m
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.16kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.10-slim
+#2 DONE 0.4s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/11] FROM docker.io/library/python:3.10-slim@sha256:2ee0fb8794bf82af1b2db168ada5869b4c27d17720dd3b155b56c111fb4a38ae
+#4 resolve docker.io/library/python:3.10-slim@sha256:2ee0fb8794bf82af1b2db168ada5869b4c27d17720dd3b155b56c111fb4a38ae 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 27.52kB 0.0s done
+#5 DONE 0.0s
+
+#6 [ 4/11] COPY requirements.txt .
+#6 CACHED
+
+#7 [ 2/11] WORKDIR /app
+#7 CACHED
+
+#8 [ 8/11] COPY Langgraph_Agent.py .
+#8 CACHED
+
+#9 [ 7/11] COPY Chatbot.py .
+#9 CACHED
+
+#10 [ 9/11] COPY helper_functions.py .
+#10 CACHED
+
+#11 [10/11] COPY .env* ./
+#11 CACHED
+
+#12 [ 3/11] RUN apt-get update && apt-get install -y     gcc     g++     curl     && rm -rf /var/lib/apt/lists/*
+#12 CACHED
+
+#13 [ 6/11] COPY random_machine_learing.pdf /app/random_machine_learing.pdf
+#13 CACHED
+
+#14 [ 5/11] RUN pip install --no-cache-dir -r requirements.txt
+#14 CACHED
+
+#15 [11/11] RUN mkdir -p /app/emissions_data
+#15 CACHED
+
+#16 exporting to image
+#16 exporting layers done
+#16 writing image sha256:40caa6ee9d07e995dd282a17d7055c73c87d93a4d9a1d804b452a8ff98908792 done
+#16 naming to docker.io/library/pdf-rag-app:latest done
+#16 DONE 0.0s
+[0;32m✅ Docker image built successfully with Architecture Version 3[0m
+[1;33mApplying deployment...[0m
+deployment.apps/pdf-rag-app created
+service/pdf-rag-service created
+[1;33mWaiting for deployment to be ready...[0m
+deployment.apps/pdf-rag-app condition met
+[1;33mChecking pod status:[0m
+NAME                           READY   STATUS        RESTARTS   AGE
+pdf-rag-app-78f9f46cf5-254jb   1/1     Terminating   0          30s
+pdf-rag-app-78f9f46cf5-pb5qq   1/1     Running       0          8s
+[0;32m✅ Deployment complete![0m
+[1;33mChecking service status:[0m
+[0;32mSERVICE                    READY   STATUS      AGE     ACCESS URL[0m
+[0;32m========================================================================[0m
+pdf-rag-app          1/1     Running    40s     http://192.168.49.2:30433
+http://192.168.49.2:31449
+prometheus           1/1     Running    220275s http://192.168.49.2:31017
+grafana              1/1     Running    220046s http://192.168.49.2:30447
+[0;32m========================================================================[0m
+[0;32m🎉 Your services are running with Architecture Version 3![0m
+[1;33mArchitecture Version: 3[0m
+Log file saved to: logs/deploy_20250607_022327.log

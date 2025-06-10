@@ -1,0 +1,17 @@
+{
+  "fine_tuned_model_id": "ft:gpt-4o-2024-08-06:personal::Bew7X3c0",
+  "reward_model": "RandomForestRegressor(random_state=42)",
+  "high_quality_samples": 15,
+  "reward_model_performance": {
+    "random_forest": {
+      "mse": 0.260447616402116,
+      "r2": -0.17201427380952183,
+      "model": "RandomForestRegressor(random_state=42)"
+    },
+    "linear_regression": {
+      "mse": 2.0420522463173465,
+      "r2": -8.189235108428058,
+      "model": "LinearRegression()"
+    }
+  }
+}

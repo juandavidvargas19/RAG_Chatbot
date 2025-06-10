@@ -1,0 +1,16 @@
+[0;32m🔧 Setting up environment for PDF RAG App deployment[0m
+[1;33mDetected distribution: debian[0m
+[1;33mFixing Docker permissions...[0m
+[1;33mStarting Docker service...[0m
+Synchronizing state of docker.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable docker
+[0;32m✅ kubectl already installed[0m
+[0;32m✅ minikube already installed[0m
+[0;32m✅ Docker already installed[0m
+[0;32m🎉 Setup complete![0m
+[1;33mNext steps:[0m
+1. Log out and log back in (or run 'newgrp docker')
+2. Run './deploy.sh' to deploy your application
+[1;33mTesting Docker access...[0m
+[0;32m✅ Docker is accessible[0m
+Log file saved to: logs/setup_20250607_020711.log

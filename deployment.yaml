@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pdf-rag-app
+  labels:
+    app: pdf-rag-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pdf-rag-app
+  template:
+    metadata:
+      labels:
+        app: pdf-rag-app
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8080"
+        prometheus.io/path: "/metrics"
+    spec:
+      containers:
+      - name: pdf-rag-app
+        image: pdf-rag-app:latest
+        imagePullPolicy: Never  # Use local image in Minikube
+        ports:
+        - containerPort: 8501
+        - containerPort: 8080
+        env:
+        - name: OPENAI_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: openai-secret
+              key: api-key
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"
+        volumeMounts:
+        - name: app-data
+          mountPath: /app/emissions_data
+        livenessProbe:
+          httpGet:
+            path: /_stcore/health
+            port: 8501
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /_stcore/health
+            port: 8501
+          initialDelaySeconds: 5
+          periodSeconds: 5
+      volumes:
+      - name: app-data
+        emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pdf-rag-service
+spec:
+  selector:
+    app: pdf-rag-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8501
+      name: http
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      name: metrics
+  type: NodePort
